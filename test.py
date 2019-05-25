@@ -3,35 +3,35 @@ from selenium import webdriver
 import pandas as pd
 import datetime
 
-##ƒŒƒCƒgƒMƒƒƒbƒv•½˜a“‡“X‚ÌHP‚ÉƒAƒNƒZƒX‚·‚é
+##ãƒ¬ã‚¤ãƒˆã‚®ãƒ£ãƒƒãƒ—å¹³å’Œå³¶åº—ã®HPã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹
 browser = webdriver.Chrome()
 today = datetime.date.today()
 #browser.get('https://reitoweb.com/b_moba/')
 #browser.find_element_by_id('lSearch').click()
 #browser.get('https://reitoweb.com/b_moba/doc/news.php?h=2')
-#ƒXƒƒbƒg‚Ì‹@íˆê——‚Ìƒy[ƒW
+#ã‚¹ãƒ­ãƒƒãƒˆã®æ©Ÿç¨®ä¸€è¦§ã®ãƒšãƒ¼ã‚¸
 #browser.get('https://reitoweb.com/b_moba/doc/data.php?h=2&t=29')
 
-#ƒf[ƒ^‚ğŠi”[‚·‚éƒŠƒXƒg‚ğì¬
-keys = ['“ú•t','BB”','ÅIƒQ[ƒ€','ART‰ñ”','‰ñ“]”','·–‡']
+#ãƒ‡ãƒ¼ã‚¿ã‚’æ ¼ç´ã™ã‚‹ãƒªã‚¹ãƒˆã‚’ä½œæˆ
+keys = ['æ—¥ä»˜','BBæ•°','æœ€çµ‚ã‚²ãƒ¼ãƒ ','ARTå›æ•°','å›è»¢æ•°','å·®æš']
 
 for n in range(1002,1009):
-    #‚Ü‚Çƒ}ƒM‚ÌƒXƒƒbƒg‚Ìƒy[ƒW
+    #ã¾ã©ãƒã‚®ã®ã‚¹ãƒ­ãƒƒãƒˆã®ãƒšãƒ¼ã‚¸
     url = 'https://reitoweb.com/b_moba/doc/machine.php?h=2&t=29&m=99119322&n={}'.format(n)
     browser.get(url)
-    #‚P‘ä‚¸‚Âî•ñ‚ğæ‚èo‚µ‚ÄCSV‚Éæ‚è‚Ş(for•¶‚Å‘S‘ä•ªæ“¾‚µ‚½‚¢)
+    #ï¼‘å°ãšã¤æƒ…å ±ã‚’å–ã‚Šå‡ºã—ã¦CSVã«å–ã‚Šè¾¼ã‚€(foræ–‡ã§å…¨å°åˆ†å–å¾—ã—ãŸã„)
     elem_BB = browser.find_element_by_id('m_BB').text
-    #BB‰ñ”æ“¾
+    #BBå›æ•°å–å¾—
     elem_last_game = browser.find_element_by_id('m_start').text
-    #‘O“úÅIƒQ[ƒ€”æ“¾
+    #å‰æ—¥æœ€çµ‚ã‚²ãƒ¼ãƒ æ•°å–å¾—
     elem_ART = browser.find_element_by_id('m_ART').text
-    #ART‰ñ”æ“¾
+    #ARTå›æ•°å–å¾—
     elem_count = browser.find_element_by_id('m_totalStart').text
-    #‰ñ“]”æ“¾
+    #å›è»¢æ•°å–å¾—
     elem_put_out = browser.find_element_by_id('m_MY').text
-    #·–‡‚Ìæ“¾
+    #å·®æšã®å–å¾—
 
-    #æ“¾‚µ‚½’l‚ğŠi”[‚·‚é
+    #å–å¾—ã—ãŸå€¤ã‚’æ ¼ç´ã™ã‚‹
     values = []
     _values = []
     _values.append(today)
@@ -43,53 +43,53 @@ for n in range(1002,1009):
     values.append(_values)
 
     if(n==1002):
-        #ƒf[ƒ^ƒZƒbƒg‚Ìì¬
+        #ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆã®ä½œæˆ
         df = pd.DataFrame(values)
         #df.columns = keys
-        #CSVƒtƒ@ƒCƒ‹‚É‘‚«‚İ
-        df.to_csv('‘äî•ñ_1002.csv',mode='a',header=False,index=False)
+        #CSVãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã¿
+        df.to_csv('å°æƒ…å ±_1002.csv',mode='a',header=False,index=False)
 
     elif(n==1003):
-        #ƒf[ƒ^ƒZƒbƒg‚Ìì¬
+        #ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆã®ä½œæˆ
         df = pd.DataFrame(values)
         #df.columns = keys
-        #CSVƒtƒ@ƒCƒ‹‚É‘‚«‚İ
-        df.to_csv('‘äî•ñ_1003.csv',mode='a',header=False,index=False)
+        #CSVãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã¿
+        df.to_csv('å°æƒ…å ±_1003.csv',mode='a',header=False,index=False)
 
     elif(n==1004):
-        #ƒf[ƒ^ƒZƒbƒg‚Ìì¬
+        #ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆã®ä½œæˆ
         df = pd.DataFrame(values)
         #df.columns = keys
-        #CSVƒtƒ@ƒCƒ‹‚É‘‚«‚İ
-        df.to_csv('‘äî•ñ_1004.csv',mode='a',header=False,index=False)
+        #CSVãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã¿
+        df.to_csv('å°æƒ…å ±_1004.csv',mode='a',header=False,index=False)
 
     elif(n==1005):
-        #ƒf[ƒ^ƒZƒbƒg‚Ìì¬
+        #ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆã®ä½œæˆ
         df = pd.DataFrame(values)
         #df.columns = keys
-        #CSVƒtƒ@ƒCƒ‹‚É‘‚«‚İ
-        df.to_csv('‘äî•ñ_1005.csv',mode='a',header=False,index=False)
+        #CSVãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã¿
+        df.to_csv('å°æƒ…å ±_1005.csv',mode='a',header=False,index=False)
 
     elif(n==1006):
-        #ƒf[ƒ^ƒZƒbƒg‚Ìì¬
+        #ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆã®ä½œæˆ
         df = pd.DataFrame(values)
         #df.columns = keys
-        #CSVƒtƒ@ƒCƒ‹‚É‘‚«‚İ
-        df.to_csv('‘äî•ñ_1006.csv',mode='a',header=False,index=False)
+        #CSVãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã¿
+        df.to_csv('å°æƒ…å ±_1006.csv',mode='a',header=False,index=False)
 
     elif(n==1007):
-        #ƒf[ƒ^ƒZƒbƒg‚Ìì¬
+        #ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆã®ä½œæˆ
         df = pd.DataFrame(values)
         #df.columns = keys
-        #CSVƒtƒ@ƒCƒ‹‚É‘‚«‚İ
-        df.to_csv('‘äî•ñ_1007.csv',mode='a',header=False,index=False)
+        #CSVãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã¿
+        df.to_csv('å°æƒ…å ±_1007.csv',mode='a',header=False,index=False)
 
     elif(n==1008):
-        #ƒf[ƒ^ƒZƒbƒg‚Ìì¬
+        #ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆã®ä½œæˆ
         df = pd.DataFrame(values)
         #df.columns = keys
-        #CSVƒtƒ@ƒCƒ‹‚É‘‚«‚İ
-        df.to_csv('‘äî•ñ_1008.csv',mode='a',header=False,index=False)
+        #CSVãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã¿
+        df.to_csv('å°æƒ…å ±_1008.csv',mode='a',header=False,index=False)
 
-#ƒuƒ‰ƒEƒU‚ğ•Â‚¶‚é
+#ãƒ–ãƒ©ã‚¦ã‚¶ã‚’é–‰ã˜ã‚‹
 browser.close()
