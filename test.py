@@ -3,7 +3,7 @@ from selenium import webdriver
 import pandas as pd
 import datetime
 
-##レイトギャップ平和島店のHPにアクセスする
+##レイトギャップ平和島店のHPにアクセスする!
 browser = webdriver.Chrome()
 today = datetime.date.today()
 #browser.get('https://reitoweb.com/b_moba/')
