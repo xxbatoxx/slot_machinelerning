@@ -15,7 +15,7 @@ today = datetime.date.today()
 #データを格納するリストを作成
 keys = ['日付','BB数','最終ゲーム','ART回数','回転数','差枚']
 
-for n in range(1002,1009):
+for n in range(1013,1018):
     #まどマギのスロットのページ
     url = 'https://reitoweb.com/b_moba/doc/machine.php?h=2&t=29&m=99119322&n={}'.format(n)
     browser.get(url)
@@ -42,54 +42,47 @@ for n in range(1002,1009):
     _values.append(elem_put_out)
     values.append(_values)
 
-    if(n==1002):
+    if(n==1013):
         #データセットの作成
         df = pd.DataFrame(values)
         #df.columns = keys
         #CSVファイルに書き込み
-        df.to_csv('台情報_1002.csv',mode='a',header=False,index=False)
+        df.to_csv('台情報_1013.csv',mode='a',header=False,index=False)
 
-    elif(n==1003):
+    elif(n==1014):
         #データセットの作成
         df = pd.DataFrame(values)
         #df.columns = keys
         #CSVファイルに書き込み
-        df.to_csv('台情報_1003.csv',mode='a',header=False,index=False)
+        df.to_csv('台情報_1014.csv',mode='a',header=False,index=False)
 
-    elif(n==1004):
+    elif(n==1015):
         #データセットの作成
         df = pd.DataFrame(values)
         #df.columns = keys
         #CSVファイルに書き込み
-        df.to_csv('台情報_1004.csv',mode='a',header=False,index=False)
+        df.to_csv('台情報_1015.csv',mode='a',header=False,index=False)
 
-    elif(n==1005):
+    elif(n==1016):
         #データセットの作成
         df = pd.DataFrame(values)
         #df.columns = keys
         #CSVファイルに書き込み
-        df.to_csv('台情報_1005.csv',mode='a',header=False,index=False)
+        df.to_csv('台情報_1016.csv',mode='a',header=False,index=False)
 
-    elif(n==1006):
+    elif(n==1017):
         #データセットの作成
         df = pd.DataFrame(values)
         #df.columns = keys
         #CSVファイルに書き込み
-        df.to_csv('台情報_1006.csv',mode='a',header=False,index=False)
+        df.to_csv('台情報_1017.csv',mode='a',header=False,index=False)
 
-    elif(n==1007):
+    elif(n==1018):
         #データセットの作成
         df = pd.DataFrame(values)
         #df.columns = keys
         #CSVファイルに書き込み
-        df.to_csv('台情報_1007.csv',mode='a',header=False,index=False)
-
-    elif(n==1008):
-        #データセットの作成
-        df = pd.DataFrame(values)
-        #df.columns = keys
-        #CSVファイルに書き込み
-        df.to_csv('台情報_1008.csv',mode='a',header=False,index=False)
+        df.to_csv('台情報_1018.csv',mode='a',header=False,index=False)
 
 #ブラウザを閉じる
 browser.close()
